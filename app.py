@@ -6,7 +6,7 @@ from playhouse.shortcuts import model_to_dict, dict_to_model
 db = PostgresqlDatabase('restaurants',
                         user='laurat', password='',
                         host='localhost', port=5432)
-# class we have to use to create our models
+# we use class to create our models
 
 
 class BaseModel(Model):
@@ -28,7 +28,7 @@ db.drop_tables([Restaurant])
 # makes a restaurant table in our data base
 
 db.create_tables([Restaurant])
-# makes a brand new restaurant to add to the restaurant table
+# makes a brand new restaurant to add to the restaurants table
 
 Restaurant(category="Fine Dining",
            description="Formal dress code and fine dining etiquette").save()

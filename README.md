@@ -14,7 +14,7 @@ Category and description of a restaurant.
 | :----- | :--------------- | :--------------------------- |
 | POST   | /restaurants     | Creates restaurants.         |
 | GET    | /restaurants     | Reads all restaurants.       |
-| GET    | /restaurant/:id  | Reads a specific restaurant. |
+| GET    | /restaurants/:id | Reads a specific restaurant. |
 | PUT    | /restaurants/:id | Updates a restaurant.        |
 | DELETE | /restaurants/:id | Deletes a restaurant.        |
 

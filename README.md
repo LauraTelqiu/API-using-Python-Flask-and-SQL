@@ -1,4 +1,4 @@
-# Restaurants Categories API-using-Python-Flask-and-SQL
+# Restaurant Categories API-using-Python-Flask-and-SQL
 
 ## About
 
@@ -6,8 +6,7 @@ Python and Flask Project with full CRUD functionality
 
 ## Every restaurant represents:
 
-Category of the restaurant
-Description of the restaurant category
+Category and description of a restaurant.
 
 ## Endpoints
 
@@ -16,8 +15,8 @@ Description of the restaurant category
 | POST   | /restaurants     | Creates restaurants.         |
 | GET    | /restaurants     | Reads all restaurants.       |
 | GET    | /restaurant/:id  | Reads a specific restaurant. |
-| PUT    | /restaurants/:id | Updates an restaurant.       |
-| DELETE | /restaurants/:id | Deletes an restaurant.       |
+| PUT    | /restaurants/:id | Updates a restaurant.        |
+| DELETE | /restaurants/:id | Deletes a restaurant.        |
 
 ### Technology Used
 

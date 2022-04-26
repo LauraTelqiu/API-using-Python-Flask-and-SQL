@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from peewee import *
 
-# this allows you to convert from a model to a dictionay and vice versa
+# this allows you to convert from a model to a dictionary and vice versa
 from playhouse.shortcuts import model_to_dict, dict_to_model
 db = PostgresqlDatabase('restaurants',
                         user='laurat', password='',
@@ -67,14 +67,16 @@ def endpoint(id=None):
             return jsonify(model_to_dict(Restaurant.get(Restaurant.id == id)))
         # else if there is no id get all restaurants
         else:
-
             restaurantsList = []
             for restaurant in Restaurant.select():
                 restaurantsList.append(model_to_dict(restaurant))
             return jsonify(restaurantsList)
-    # put request
+    # put request updates a restaurant
     if request.method == 'PUT':
-        return 'PUT REQUEST'
+        body = request.get_json()
+        restaurant = Restaurant.update(body).where(Restaurant.id == id)
+        restaurant.execute()
+        return jsonify({"updated": True})
     # post request, creates a new restaurant
     if request.method == 'POST':
         new_restaurant = dict_to_model(Restaurant, request.get_json())
@@ -82,7 +84,9 @@ def endpoint(id=None):
         return jsonify({"success": True})
     # delete request
     if request.method == 'DELETE':
-        return 'DELETE REQUEST'
+        deleted = Restaurant.delete().where(Restaurant.id == id)
+        deleted.execute()
+        return jsonify({"deleted": True})
 
 
 app.run(port=9000, debug=True)
